@@ -12,7 +12,7 @@
 
         public string Location { get; set; }
 
-        public string LastFertilized  { get; set; }
+        public string Note { get; set; }
 
         public byte[] PlantImage { get; set; }
     }

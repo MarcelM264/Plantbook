@@ -1,0 +1,61 @@
+﻿@model Plantbook.Models.PlantPosting
+
+@{
+    ViewData["Title"] = "Erstellen oder Bearbeiten";
+}
+
+
+
+<form asp-controller="PlantPosting" asp-action="CreateEditPlant" enctype="multipart/form-data">
+
+    <div class="card">
+
+        <div class="card-header">
+            <h5>Inserat bearbeiten</h5>
+        </div>
+    
+        <div class="card-body">
+            <div class="row form-group">
+                <div class="col">
+                    <input class="form-control" asp-for="Species" type="text" placeholder="Was für eine Pflanze möchtest du anlegen?"/>
+                </div>
+                <div class="col">
+                    <input class="form-control" asp-for="Location" type="text" placeholder="Wo steht deine Pflanze? z.B. (Indoor/Outdoor/Kalthaus)"/>
+                </div>
+            </div>
+
+             <div class="row form-group">
+                <div class="col">
+                    <input class="form-control" asp-for="Age" type="number" placeholder="Wie alt ist deine Pflanze?"/>
+                </div>
+                <div class="col">
+                    <input class="form-control" asp-for="Height" type="number" placeholder="Wie hoch ist deine Pflanze?"/>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col">
+                    <label>Lade ein Bild deiner Pflanze hoch</label>
+                    <input class="form-control" name="file" type="file" />
+                </div>
+                
+            </div>
+
+            <div class="row form-group">
+                <div class="col">
+                    <textarea class="form-control" asp-for="Note" type="number" placeholder="Mache dir Notizen zu deiner Pflanze?"/>
+                </div>
+                
+            </div>
+
+
+        </div>
+    
+        <div class="card-footer"> 
+            <button type="submit" class="btn btn-primary">Speichern</button>
+        </div>
+
+    </div>
+  
+    
+</form>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Plantbook.Models;
 
 namespace Plantbook.Controllers
 {
@@ -9,9 +10,25 @@ namespace Plantbook.Controllers
             return View();
         }
 
-        public IActionResult CreateEditPlant(int id)
+        public IActionResult CreateEditPlantPosting(int id)
         {
             return View();
+        }
+
+        public IActionResult CreateEditPlant(PlantPosting plantPosting, IFormFile file)
+        {
+            if(file != null)
+            {
+                using ( var ms = new MemoryStream())
+                {
+                    file.CopyTo(ms);
+                    var bytes = ms.ToArray();
+                    plantPosting.PlantImage = bytes;
+                }
+            }
+            //TODO: write plantposting to db
+
+            return RedirectToAction("Index");
         }
     }
 }
